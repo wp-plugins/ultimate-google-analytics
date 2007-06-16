@@ -14,7 +14,8 @@ Plugin to add Google Analytics JavaScript to each page on your weblog without ma
 
 The plugin is highly configurable. Read trough the list of features below to get a feeling of what this plugin can do. You can enable and disable all features individually, although the default configuration will suffice for 90% of the users.
 
-*Features*
+**Features**
+
 * Start with a simple configuration screen and hide more advanced/complex configuration in an Advanced Configuration mode. Most users will suffice with the simple configuration screen. If you're interested in tweaking and tuning this plugin, use the advanced settings.
 * Do not make any changes to feeds, as it is not wise to include JavaScript in those
 * Add the same JavaScript tracker code to the admin pages if you want to track those as well (switched off with the default settings)
@@ -38,7 +39,7 @@ Installing is as simple as downloading the file from this site, placing it in yo
 1. Click on the Plugins tab and search for Ultimate Google Analytics in the list
 1. Activate the Ultimate Google Analytics plugin
 1. You can now find an Ultimate GA page under Options to set the options of the plug-in
-1. If you’re comfortable reading HTML and feel like it, you can look at the HTML source code of your blog pages to see the included Google Analytics tracker code at the end of the page. You could also check if an onClick event is added to the outbound, download and/or mailto: links as specified in your options. Make sure that you’re not checking this as a logged on user if you’ve enabled Ignore Logged On Users. In that case, log out of WordPress before doing these checks. Also make sure you request your blog page at least twice to give the Ultimate Google Analytics plugin the change to detect is the wp_footer hook is called by your template.
+1. If you're comfortable reading HTML and feel like it, you can look at the HTML source code of your blog pages to see the included Google Analytics tracker code at the end of the page. You could also check if an onClick event is added to the outbound, download and/or mailto: links as specified in your options. Make sure that you’re not checking this as a logged on user if you’ve enabled Ignore Logged On Users. In that case, log out of WordPress before doing these checks. Also make sure you request your blog page at least twice to give the Ultimate Google Analytics plugin the change to detect is the wp_footer hook is called by your template.
 1. Wait until Google Analytics updates your reports. Currently it seems like this can take up to 24 hours. Note that by default Google Analytics selects a week ending yesterday as its reporting period. Click on today in the lefthand calendar to see today’s statistics, if they’ve already been reported.
 
 == Frequently Asked Questions ==
