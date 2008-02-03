@@ -3,7 +3,7 @@ Contributors: wvanderdeijl
 Donate link: http://www.oratransplant.nl/uga/
 Tags: google analytics, google, statistics, stats, tracking
 Requires at least: 1.5.1.3
-Tested up to: 2.2
+Tested up to: 2.3.2
 Stable tag: trunk
 
 Adds Google Analytics JavaScript to each page on your weblog. Can also add tracking to outbound links, downloads from your site and mail links.
@@ -47,10 +47,6 @@ Installing is as simple as downloading the file from this site, placing it in yo
 = A question that someone might have =
 
 An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
 
 == Screenshots ==
 

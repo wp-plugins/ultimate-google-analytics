@@ -3,12 +3,12 @@
 Plugin Name: Ultimate Google Analytics
 Plugin URI: http://www.oratransplant.nl/uga
 Description: Enable Google Analytics on your blog. Has options to also track external links, mailto links and links to downloads on your own site. Check <a href="http://www.oratransplant.nl/uga/#versions">http://www.oratransplant.nl/uga/#versions</a> for version updates
-Version: 1.5.3
+Version: 1.6.0
 Author: Wilfred van der Deijl
 Author URI: http://www.oratransplant.nl/about
 */
 
-/*  Copyright 2006 Wilfred van der Deijl  (email : wilfred _at_ vanderdeijl.com)
+/*  Copyright 2006-2008 Wilfred van der Deijl  (email : wilfred _at_ vanderdeijl.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -142,10 +142,13 @@ Author URI: http://www.oratransplant.nl/about
        information. Without this fix, Ultimate Google Analytics is not
        compatible with the Gengo plugin.
 
+  version 1.6.0
+    +: Using the new Google Analytics tracking code (ga.js not urchin.js)
+
 */
 
 // constants
-define('uga_version', '1.5.3', true);
+define('uga_version', '1.6.0', true);
 
 // Uncomment the following line to force debugging regardless setting in
 // the Control Panel. With this forced debugging, the info will be written
@@ -725,7 +728,7 @@ function uga_preg_callback($match) {
   if ($tracker) {
     // add onClick attribute to the A tag
     uga_debug("Adding onclick attribute for $tracker");
-    $onClick="javascript:urchinTracker ('$tracker');";
+    $onClick="javascript:pageTracker._trackPageview('$tracker');";
     $result=preg_replace('@<a\s([^>]*?)href@i', // '@<a(.*)href@i', 
                          '<a onclick="'.$onClick.'" $1 href', 
                          $result);
@@ -816,11 +819,14 @@ function uga_get_tracker() {
       // add tracker JavaScript to the page
       $result='
 <!-- tracker added by Ultimate Google Analytics plugin v'.uga_version.': http://www.oratransplant.nl/uga -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-_uacct = "'.uga_get_option('account_id').'";
-urchinTracker();
+var pageTracker = _gat._getTracker("'.uga_get_option('account_id').'");
+pageTracker._initData();
+pageTracker._trackPageview();
 </script>
 ';
     } else {
