@@ -521,7 +521,7 @@ function uga_options() {
 function uga_track_user() {
   global $user_level;
   uga_debug('Start uga_track_user');
-  if (!user_level) {
+  if (!$user_level) {
     // user nog logged on -> track
     uga_debug('User not logged on');
     $result = true;
